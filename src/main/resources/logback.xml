@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration debug="false">
+
+    <property name="applicationName" value="webplus-demo-tomcat"/>
+
+    <contextName>${applicationName}</contextName>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %gray(%d{yyyy-MM-dd hh:mm:ss.SSS}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}) - %msg%n%throwable
+            </pattern>
+        </layout>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>

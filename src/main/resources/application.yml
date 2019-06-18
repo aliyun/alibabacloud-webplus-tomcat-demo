@@ -1,0 +1,6 @@
+debug: false
+logging.level.com.alibaba.webx.quickstart: INFO
+
+show.next.steps: true
+
+news.repository.url: https://aliwebx-sz.oss-cn-shenzhen.aliyuncs.com/whats-new/
