@@ -68,10 +68,18 @@ public class NewsService {
     private static final Parser PARSER = Parser.builder().extensions(EXTENSIONS).build();
     private static final HtmlRenderer RENDERER = HtmlRenderer.builder().build();
 
+    private static List<News> cachedNews;
+
     @Value("${news.repository.url}")
     private String newsRepositoryUrl;
 
-    public List<News> fetchNews() throws IOException {
+    public synchronized List<News> fetchNews() throws IOException {
+        if (cachedNews != null) {
+            log.debug("Use cached news.");
+            return cachedNews;
+        }
+
+        log.debug("No cached news, fetching...");
         List<URL> newsFileUrls = this.fetchNewsFileUrls();
         List<News> fileContents = new ArrayList<>(newsFileUrls.size());
         for (URL newsFileUrl : newsFileUrls) {
@@ -80,7 +88,8 @@ public class NewsService {
                 fileContents.add(parseMarkdown(content));
             }
         }
-        return fileContents;
+        cachedNews = fileContents;
+        return cachedNews;
     }
 
     private List<URL> fetchNewsFileUrls() throws IOException {
