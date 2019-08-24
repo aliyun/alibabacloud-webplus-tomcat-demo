@@ -32,17 +32,18 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.PostConstruct;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author 奥陌
+ */
 @Slf4j
 @RestController
 public class DefaultController {
@@ -55,6 +56,8 @@ public class DefaultController {
     private static final String ENV_ID_KEY = "WP_ENV_ID";
     private static final String ENV_NAME_KEY = "WP_ENV_NAME";
     private static final String CHANGE_TRIGGER_FROM_KEY = "WP_CHANGE_TRIGGER_FROM";
+
+    private final String SUPPORTED_RDS_ENGINE = "MySQL";
 
     @Autowired
     private MessageSource messageSource;
@@ -91,16 +94,13 @@ public class DefaultController {
 
     private Mustache.Lambda i18n;
 
-    @Autowired
-    private ResourceLoader resourceLoader;
-
     @PostConstruct
     public void init() {
         this.i18n = new MustacheLocalizationLambda(this.messageSource);
     }
 
-    @GetMapping(value = "/")
-    public ModelAndView index(Map<String, Object> model, HttpServletResponse response) throws IOException {
+    @GetMapping("/")
+    public ModelAndView index(Map<String, Object> model) throws IOException {
         model.put(MustacheLocalizationLambda.DEFAULT_MODEL_KEY, i18n);
 
         model.put("news", this.newsService.fetchNews());
@@ -115,6 +115,13 @@ public class DefaultController {
         model.put("consoleUrl", this.consoleUrl);
         model.put("envs", this.getEnvs());
 
+        String rds_engine = System.getenv("WP_RDS_ENGINE");
+        if(SUPPORTED_RDS_ENGINE.equals(rds_engine)) {
+            model.put("show_rds", true);
+        } else {
+            model.put("show_rds", false);
+        }
+
         return new ModelAndView("index", model);
     }
 
@@ -127,7 +134,7 @@ public class DefaultController {
         envs.put("envName", System.getenv(ENV_NAME_KEY));
         envs.put("fromCLI", "CLI".equals(System.getenv(CHANGE_TRIGGER_FROM_KEY)));
         envs.put("fromConsole", "Console".equals(System.getenv(CHANGE_TRIGGER_FROM_KEY)));
-        log.debug("envs = {}", envs);
+        //log.debug("envs = {}", envs);
         return envs;
     }
 
