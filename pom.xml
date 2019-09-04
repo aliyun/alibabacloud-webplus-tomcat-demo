@@ -9,7 +9,7 @@
 
     <groupId>com.alibaba.webplus</groupId>
     <artifactId>webplus-tomcat-demo</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <packaging>war</packaging>
     <name>Web+ Tomcat Demo</name>
 
