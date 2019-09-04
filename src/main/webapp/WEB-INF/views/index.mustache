@@ -32,7 +32,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{#i18n}}title{{/i18n}}</title>
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-    <link href="main.css" rel="stylesheet">
+    <link href="home/bundle.css" rel="stylesheet">
 </head>
 
 <body data-spy="scroll" data-target="#navbar" data-offset="200">
@@ -54,6 +54,7 @@ with(b)with(body)with(insertBefore(createElement("script"),firstChild))setAttrib
                 <li class="nav-item"><a class="nav-link" href="#section-next-steps">{{#i18n}}next.steps{{/i18n}}</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-features">{{#i18n}}features{{/i18n}}</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-whats-new">{{#i18n}}whats.new{{/i18n}}</a></li>
+                <li class="nav-item"><a class="nav-link" href="#section-tools">{{#i18n}}tools{{/i18n}}</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-footer">{{#i18n}}contact.us{{/i18n}}</a></li>
                 <li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0">
                     <a class="nav-link" href="{{quickstartDocUrl}}" target="_blank">
@@ -209,7 +210,51 @@ $ wpctl deploy</code></pre>
     </div>
 </section>
 
-<footer class="pb_footer" id="section-footer">
+<section class="pb_section pb_slant-light pb_pb-250" id="section-tools">
+    <div class="container">
+        <div class="row justify-content-center mb-1">
+            <div class="col-md-6 text-center mb-5">
+                <h2>{{#i18n}}tools{{/i18n}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="pb_slide_testimonial_sync_v1">
+                    <div class="pb_slider_content js-pb_slider_content2 px-3" id="tools-slider">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <div class="card-body">
+                              <h5 class="card-title">{{#i18n}}env.title{{/i18n}}</h5>
+                              <p class="card-text">{{#i18n}}env.text{{/i18n}}</p>
+                              <a href="/env" class="btn btn-primary">{{#i18n}}env.btn{{/i18n}}</a>
+                            </div>
+                          </div>
+                        </div>
+
+                          {{#show_rds}}
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <div class="card-body">
+                              <h5 class="card-title">{{#i18n}}rds.title{{/i18n}}</h5>
+                              <p class="card-text">{{#i18n}}rds.text{{/i18n}}</p>
+                              <a href="/todos/" class="btn btn-primary">{{#i18n}}rds.btn{{/i18n}}</a>
+                            </div>
+                          </div>
+                        </div>
+                              {{/show_rds}}
+
+
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="pb_footer bg-light pb_white" id="section-footer">
     <div class="container">
         <div class="row">
             <div class="col text-center">
@@ -233,7 +278,7 @@ $ wpctl deploy</code></pre>
     </svg>
 </div>
 
-<script type="text/javascript" src="bundle.js"></script>
+<script type="text/javascript" src="home/bundle.js"></script>
 </body>
 
 </html>

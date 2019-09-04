@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- 导入资源文件
+    读取db.properties文件中的数据 -->
+    <context:property-placeholder location="classpath:application.properties"/>
+
+    <!-- 配置C3P0数据源 -->
+    <bean id="dataSource"
+          class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="user" value="${spring.datasource.username}"></property>
+        <property name="password" value="${spring.datasource.password}"></property>
+        <property name="jdbcUrl" value="${spring.datasource.url}"></property>
+        <property name="driverClass" value="${spring.datasource.driver-class-name}"></property>
+
+        <property name="initialPoolSize" value="${spring.datasource.dbcp2.initial-size}"></property>
+    </bean>
+
+    <!-- 配置Spring的jdbcTemplate
+        并注入一个dataSource数据源-->
+    <bean id="jdbcTemplate"
+          class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+</beans>
