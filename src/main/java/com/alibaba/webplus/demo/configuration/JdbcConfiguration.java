@@ -27,16 +27,20 @@ package com.alibaba.webplus.demo.configuration;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
+import java.util.TimeZone;
 
 /**
  * @author Aomo
  */
+@Slf4j
 @Configuration
 @ConditionalOnMysqlPresent
 public class JdbcConfiguration {
@@ -52,6 +56,14 @@ public class JdbcConfiguration {
 
     @Value("${spring.datasource.password}")
     private String password;
+
+    @PostConstruct
+    public void init() {
+        String timezone = TimeZone.getDefault().getID();
+        log.debug("serverTimezone = {}", timezone);
+        this.url = this.url + "&serverTimezone=" + timezone;
+        log.debug("jdbc url = {}", this.url);
+    }
 
     @Bean
     public DataSource dataSource() {
