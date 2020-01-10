@@ -31,7 +31,7 @@ import org.springframework.web.servlet.view.AbstractTemplateViewResolver;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
 
 /**
- * @author 奥陌
+ * @author Aomo
  */
 @Component
 public class MustacheViewResolver extends AbstractTemplateViewResolver {

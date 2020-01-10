@@ -1,0 +1,79 @@
+<!--
+ - MIT License
+ -
+ - Copyright (c) 2019-present Alibaba Group
+ -
+ - Permission is hereby granted, free of charge, to any person obtaining
+ - a copy of this software and associated documentation files (the
+ - "Software"), to deal in the Software without restriction, including
+ - without limitation the rights to use, copy, modify, merge, publish,
+ - distribute, sublicense, and/or sell copies of the Software, and to
+ - permit persons to whom the Software is furnished to do so, subject to
+ - the following conditions:
+ -
+ - The above copyright notice and this permission notice shall be
+ - included in all copies or substantial portions of the Software.
+ -
+ - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ - EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ - MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ - NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ - LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ - OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ - WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ -->
+
+<!doctype html>
+
+<html lang="en" data-framework="es6">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{#i18n}}title{{/i18n}} - {{#i18n}}todo.title{{/i18n}}</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link href="todolist/bundle.css" rel="stylesheet">
+</head>
+
+<body>
+<section class="todoapp">
+    <header class="header">
+        <h1>{{#i18n}}todo.title{{/i18n}}</h1>
+        <input class="new-todo" placeholder="{{#i18n}}what.needs.to.be.done{{/i18n}}" autofocus>
+    </header>
+    <section style="display:none" class="main">
+        <input id="toggle-all" class="toggle-all" type="checkbox">
+        <label for="toggle-all">{{#i18n}}mark.all.as.complete{{/i18n}}</label>
+        <ul class="todo-list"></ul>
+        <footer class="footer">
+            <span class="todo-count"></span>
+            <ul class="filters">
+                <li>
+                    <a href="#/" class="selected">{{#i18n}}all{{/i18n}}</a>
+                </li>
+                <li>
+                    <a href="#/active">{{#i18n}}active{{/i18n}}</a>
+                </li>
+                <li>
+                    <a href="#/completed">{{#i18n}}completed{{/i18n}}</a>
+                </li>
+            </ul>
+            <button class="clear-completed">{{#i18n}}clear.completed{{/i18n}}</button>
+        </footer>
+    </section>
+</section>
+
+<footer class="info">
+    <p>{{#i18n}}double.click.to.edit.a.todo{{/i18n}}</p>
+    <p>Written by <a href="http://twitter.com/lukeed05">Luke Edwards</a></p>
+    <p>Refactored by <a href="https://github.com/xorgy">Aaron Muir Hamilton</a></p>
+    <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+</footer>
+
+<input type="hidden" id="count-label-single-form" value="{{#i18n}}count.label.single.form{{/i18n}}">
+<input type="hidden" id="count-label-plural-form" value="{{#i18n}}count.label.plural.form{{/i18n}}">
+
+<script type="text/javascript" src="todolist/bundle.js"></script>
+
+</body>
+</html>

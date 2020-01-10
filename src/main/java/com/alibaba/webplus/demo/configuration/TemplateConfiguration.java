@@ -31,7 +31,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author 奥陌
+ * @author Aomo
  */
 @Configuration
 public class TemplateConfiguration {

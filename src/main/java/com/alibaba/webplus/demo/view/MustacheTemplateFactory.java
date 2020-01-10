@@ -32,7 +32,7 @@ import org.springframework.stereotype.Component;
 import java.io.Reader;
 
 /**
- * @author 奥陌
+ * @author omo
  */
 @Component
 public class MustacheTemplateFactory {

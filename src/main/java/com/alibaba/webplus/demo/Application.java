@@ -34,7 +34,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
 /**
- * @author 奥陌
+ * @author Aomo
  */
 public class Application implements WebApplicationInitializer {
 

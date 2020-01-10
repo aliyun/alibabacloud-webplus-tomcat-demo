@@ -30,7 +30,7 @@ import com.samskivert.mustache.Template;
 import java.io.Writer;
 
 /**
- * @author 奥陌
+ * @author Aomo
  */
 public class MustacheTemplate {
 

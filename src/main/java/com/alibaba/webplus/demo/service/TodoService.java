@@ -1,60 +1,54 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2019-present Alibaba Group
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
 package com.alibaba.webplus.demo.service;
 
-import java.util.List;
+import com.alibaba.webplus.demo.model.Todo;
 
-import com.alibaba.webplus.demo.domain.Todo;
+import java.util.List;
+import java.util.Map;
 
 /**
- * @author 白寂
- * @date 2019/07/23
+ * @author Baiji
  */
 public interface TodoService {
 
-    /**
-     * 查询已完成或未完成的所有Todo
-     * @param completed
-     * @return
-     */
-    public List<Todo> get(Boolean completed);
+    Todo getById(long id);
 
-    /**
-     * 查询所有Todo
-     * @return
-     */
-    public List<Todo> get();
+    List<Todo> getAll();
 
-    /**
-     * 查询指定Todo
-     * @param id
-     * @return
-     */
-    public Todo get(long id);
+    List<Todo> getByStatus(boolean completed);
 
-    /**
-     * 新增一条Todo
-     * @param todo
-     * @return
-     */
-    public Todo create(Todo todo);
+    void create(Todo item);
 
-    /**
-     * 删除所有已完成Todo
-     * @return
-     */
-    public List<Todo> deleteCompleted();
+    void update(long id, Todo item);
 
-    /**
-     * 删除指定Todo
-     * @param id
-     * @return
-     */
-    public List<Todo> delete(long id);
+    void removeById(long id);
 
-    /**
-     * 更新一条Todo
-     * @param id
-     * @param todo
-     * @return
-     */
-    public Todo update(long id, Todo todo);
+    void removeByStatus(boolean completed);
+
+    Map<String, Integer> count();
+
 }
