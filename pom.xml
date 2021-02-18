@@ -26,7 +26,7 @@
 
         <jmustache.version>1.15</jmustache.version>
         <commonmark.version>0.12.1</commonmark.version>
-        <jackson.version>2.10.2</jackson.version>
+        <jackson.version>2.10.5.1</jackson.version>
         <hikaricp.version>3.4.1</hikaricp.version>
         <mysql.connector.version>8.0.18</mysql.connector.version>
 
