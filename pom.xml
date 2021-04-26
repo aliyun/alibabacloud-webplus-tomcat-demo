@@ -30,7 +30,7 @@
         <hikaricp.version>3.4.1</hikaricp.version>
         <mysql.connector.version>8.0.18</mysql.connector.version>
 
-        <commons.io.version>2.6</commons.io.version>
+        <commons.io.version>2.7</commons.io.version>
         <commons.text.version>1.8</commons.text.version>
 
         <flyway.version>6.1.4</flyway.version>
