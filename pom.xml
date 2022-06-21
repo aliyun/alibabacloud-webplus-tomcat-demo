@@ -28,7 +28,7 @@
         <commonmark.version>0.12.1</commonmark.version>
         <jackson.version>2.10.2</jackson.version>
         <hikaricp.version>3.4.1</hikaricp.version>
-        <mysql.connector.version>8.0.18</mysql.connector.version>
+        <mysql.connector.version>8.0.28</mysql.connector.version>
 
         <commons.io.version>2.6</commons.io.version>
         <commons.text.version>1.8</commons.text.version>
